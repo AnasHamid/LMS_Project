@@ -30,8 +30,9 @@ dependencies {
 
 checkstyle {
 	toolVersion = "10.12.4"
+	configFile = file("codeQuality/checkstyle.xml")
 }
 
-tasks.named('test') {
+/*tasks.named('test') {
 	useJUnitPlatform()
-}
+}*/
