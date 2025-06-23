@@ -4,13 +4,25 @@
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-    <!--<module name="SuppressionFilter">
-        <property name="file" value="suppressions.xml"/>
-    </module>-->
-    <module name="AvoidStarImport"/>
-    <module name="UnusedImports"/>
-    <module name="MethodLength">
-        <!-- Make the @SuppressWarnings annotations available to Checkstyle -->
-        <module name="SuppressWarningsHolder"/>
+    <module name="TreeWalker">
+        <module name="JavadocMethod"/>
+        <module name="JavadocType"/>
+        <module name="JavadocVariable"/>
+        <module name="JavadocStyle"/>
+        <module name="ConstantName"/>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="PackageName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
+        <module name="AvoidStarImport"/>
+        <module name="IllegalImport"/>
+        <module name="RedundantImport"/>
+        <module name="UnusedImports"/>
+        <module name="MethodLength"/>
+        <module name="ParameterNumber"/>
     </module>
 </module>
