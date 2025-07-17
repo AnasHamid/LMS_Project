@@ -11,3 +11,8 @@ Day 3:
 Build an api to get BookList of hard coded Data (book id, book name and author name)
 Configure PostgresSQL in the project
 Run the Service Successfully
+
+Day 4:
+Configure Flyway and create new table using flyway migration 
+Change project formatting rules in IDE
+Run external api on local

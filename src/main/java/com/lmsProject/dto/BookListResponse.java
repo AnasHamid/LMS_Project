@@ -1,11 +1,11 @@
 package com.lmsProject.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import lombok.Builder;
 
 import java.util.List;
 
-@JsonPOJOBuilder
+@Builder
 public record BookListResponse(
         @JsonProperty("bookList")
         List<Book> bookList) {
