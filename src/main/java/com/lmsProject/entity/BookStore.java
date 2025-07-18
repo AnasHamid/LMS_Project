@@ -24,13 +24,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class BookStore {
     @Id
-    @SequenceGenerator(name="T_BOOK_STORE_SEQ",
-            sequenceName="T_BOOK_STORE_SEQ",
-            allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator="T_BOOK_STORE_SEQ")
+    @SequenceGenerator(name="T_BOOK_STORE_SEQ", sequenceName="T_BOOK_STORE_SEQ", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="T_BOOK_STORE_SEQ")
     @Column(name = "ID")
-    private Integer id;
+    private Long id;
     @Column(name = "BOOK_NAME")
     private String bookName;
     @Column(name = "AUTHOR_NAME")
