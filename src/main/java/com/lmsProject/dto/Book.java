@@ -1,9 +1,11 @@
 package com.lmsProject.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Setter;
+import lombok.Builder;
+import lombok.Data;
 
-@Setter
+@Data
+@Builder
 public class Book {
     @JsonProperty("bookId")
     private int bookId;

@@ -34,7 +34,7 @@ public class BookStoreController {
      */
     @RequestMapping(value = "/addBooks",
             produces = "application/json",
-            method = RequestMethod.GET)
+            method = RequestMethod.POST)
     public ResponseEntity<String> addBooks(@RequestBody AddBooksRequest addBookRequest) {
         return bookStoreService.addBooks(addBookRequest);
     }
