@@ -62,3 +62,17 @@ Request :
 
 Response :
 Books added successfully
+
+### Day 6:
+Create new column Book Registration Number
+Remove hard coded values from Book List api and make it fetch from DB
+Create a delete book api on the basis of names
+
+Request :
+
+{
+"bookNamesList": ["Two States"]
+}
+
+Response :
+Books deleted successfully

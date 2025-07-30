@@ -28,6 +28,8 @@ public class BookStore {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="T_BOOK_STORE_SEQ")
     @Column(name = "ID")
     private Long id;
+    @Column(name = "BOOK_REGISTRATION_NUMBER")
+    private String bookRegistrationNumber;
     @Column(name = "BOOK_NAME")
     private String bookName;
     @Column(name = "AUTHOR_NAME")
@@ -38,9 +40,9 @@ public class BookStore {
     private String createdBy;
     @Column(name = "CREATED_AT", updatable = false)
     private LocalDateTime createdAt;
-    @Column(name = "UPDATE_BY", insertable = false)
+    @Column(name = "UPDATED_BY", insertable = false)
     private String updatedBy;
-    @Column(name = "UPDATE_AT", insertable = false)
+    @Column(name = "UPDATED_AT", insertable = false)
     private LocalDateTime updatedAt;
 
     @PrePersist

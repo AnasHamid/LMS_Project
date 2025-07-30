@@ -2,6 +2,7 @@ package com.lmsProject.resource;
 
 import com.lmsProject.dto.AddBooksRequest;
 import com.lmsProject.dto.BookListResponse;
+import com.lmsProject.dto.DeleteBooksByNameRequest;
 import com.lmsProject.service.BookStoreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,7 +26,6 @@ public class BookStoreController {
     /**
      * Api exposed to get book list.
      */
-
     @Operation(
             summary = "Fetch all Books registered",
             description = "fetches all the registered books and their data from Library")
@@ -47,6 +47,19 @@ public class BookStoreController {
             method = RequestMethod.POST)
     public ResponseEntity<String> addBooks(@RequestBody AddBooksRequest addBookRequest) {
         return bookStoreService.addBooks(addBookRequest);
+    }
+
+    /**
+     * Api exposed to delete books in book store by name.
+     */
+    @Operation(
+            summary = "Deletes list of Books",
+            description = "deletes list of books on the basis of their name from the Library System")
+    @RequestMapping(value = "/deleteBooksByName",
+            produces = "application/json",
+            method = RequestMethod.POST)
+    public ResponseEntity<String> deleteBooksByName(@RequestBody DeleteBooksByNameRequest deleteBooksByNameRequest) {
+        return bookStoreService.deleteBooksByName(deleteBooksByNameRequest);
     }
 
 }

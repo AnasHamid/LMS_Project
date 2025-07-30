@@ -11,14 +11,12 @@ import java.util.List;
 @Component
 public class BookBuilder {
 
-    public List<Book> getBookList() {
-        Book b1 = Book.builder().bookId(1).bookName("Origin").authorName("Dan Brown").publisherName("Modern House").build();
-        Book b2 = Book.builder().bookId(2).bookName("Angels And Demons").authorName("Dan Brown").publisherName("Modern House").build();
-        Book b3 = Book.builder().bookId(3).bookName("It Ends With Us").authorName("Colleen Hoover").publisherName("Goel Publiction Prakashan").build();
+
+    public List<Book> getBookList(List<BookStore> bookStoreList) {
         List<Book> bookList = new ArrayList<>();
-        bookList.add(b1);
-        bookList.add(b2);
-        bookList.add(b3);
+        bookStoreList.forEach(bookStore -> {
+            bookList.add(getBookEntry(bookStore));
+        });
         return bookList;
     }
 
@@ -32,9 +30,18 @@ public class BookBuilder {
 
     private BookStore getBookStoreEntry(Book book) {
         return BookStore.builder()
+                .bookRegistrationNumber(book.getBookRegistrationNumber())
                 .bookName(book.getBookName())
                 .authorName(book.getAuthorName())
                 .publisherName(book.getPublisherName()).build();
+    }
+
+    private Book getBookEntry(BookStore bookStore) {
+        return Book.builder()
+                .bookRegistrationNumber(bookStore.getBookRegistrationNumber())
+                .bookName(bookStore.getBookName())
+                .authorName(bookStore.getAuthorName())
+                .publisherName(bookStore.getPublisherName()).build();
     }
 
 }
