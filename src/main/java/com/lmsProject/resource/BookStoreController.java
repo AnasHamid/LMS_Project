@@ -2,7 +2,7 @@ package com.lmsProject.resource;
 
 import com.lmsProject.dto.AddBooksRequest;
 import com.lmsProject.dto.BookListResponse;
-import com.lmsProject.dto.DeleteBooksByNameRequest;
+import com.lmsProject.dto.DeleteBooksRequest;
 import com.lmsProject.service.BookStoreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -54,12 +54,12 @@ public class BookStoreController {
      */
     @Operation(
             summary = "Deletes list of Books",
-            description = "deletes list of books on the basis of their name from the Library System")
-    @RequestMapping(value = "/deleteBooksByName",
+            description = "deletes list of books on the basis of their name or registration number from the Library System")
+    @RequestMapping(value = "/deleteBooks",
             produces = "application/json",
             method = RequestMethod.POST)
-    public ResponseEntity<String> deleteBooksByName(@RequestBody DeleteBooksByNameRequest deleteBooksByNameRequest) {
-        return bookStoreService.deleteBooksByName(deleteBooksByNameRequest);
+    public ResponseEntity<String> deleteBooksByName(@RequestBody DeleteBooksRequest deleteBooksRequest) {
+        return bookStoreService.deleteBooksByName(deleteBooksRequest);
     }
 
 }

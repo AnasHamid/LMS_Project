@@ -76,3 +76,24 @@ Request :
 
 Response :
 Books deleted successfully
+
+### Day 7:
+Change book deletion api and implement factory pattern.
+Delete books on basis of name or registration number
+
+Request :
+
+{
+"bookNamesList": ["Two States"],
+"bookRegistrationNumberList": []
+}
+
+or 
+
+{
+"bookNamesList": [],
+"bookRegistrationNumberList": ["ABCD26H85"]
+}
+
+Response :
+Books deleted successfully

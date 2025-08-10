@@ -5,7 +5,7 @@ import com.lmsProject.constant.Constants;
 import com.lmsProject.dto.AddBooksRequest;
 import com.lmsProject.dto.Book;
 import com.lmsProject.dto.BookListResponse;
-import com.lmsProject.dto.DeleteBooksByNameRequest;
+import com.lmsProject.dto.DeleteBooksRequest;
 import com.lmsProject.entity.BookStore;
 import com.lmsProject.repository.BookStoreRespository;
 import org.slf4j.Logger;
@@ -28,6 +28,9 @@ public class BookStoreServiceImpl implements BookStoreService {
 
     @Autowired
     private BookStoreRespository bookStoreRespository;
+
+    @Autowired
+    private BookDeletionFactory bookDeletionFactory;
 
     @Override
     public ResponseEntity<BookListResponse> getBookList() {
@@ -55,19 +58,14 @@ public class BookStoreServiceImpl implements BookStoreService {
     }
 
     @Override
-    public ResponseEntity<String> deleteBooksByName(DeleteBooksByNameRequest deleteBooksByNameRequest) {
+    public ResponseEntity<String> deleteBooksByName(DeleteBooksRequest deleteBooksRequest) {
         try {
-            if (deleteBooksByNameRequest.bookNamesList().isEmpty())
+            if (deleteBooksRequest.bookNamesList().isEmpty() && deleteBooksRequest.bookRegistrationNumberList().isEmpty())
                 throw new RuntimeException("Name list required to delete data");
-
-            List<BookStore> bookStoreList = bookStoreRespository.findByBookNameIn(deleteBooksByNameRequest.bookNamesList());
-            if (bookStoreList.isEmpty())
-                throw new RuntimeException("No Books found with given names");
-            bookStoreRespository.deleteAll(bookStoreList);
+            return new ResponseEntity<>(bookDeletionFactory.getBookDeletionStrategy(deleteBooksRequest).deleteBooks(deleteBooksRequest), HttpStatus.ACCEPTED);
         } catch (Exception exception) {
             LOGGER.error("BookStoreServiceImpl - deleteBooksByName - exception occurred : {}", exception.getMessage());
             throw exception;
         }
-        return new ResponseEntity<>(Constants.BOOK_DELETION_SUCCESSFUL_MESSAGE, HttpStatus.ACCEPTED);
     }
 }

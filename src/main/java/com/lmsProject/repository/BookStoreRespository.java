@@ -10,4 +10,6 @@ import java.util.List;
 public interface BookStoreRespository extends JpaRepository<BookStore, Long> {
 
     List<BookStore> findByBookNameIn(List<String> bookNamesList);
+
+    List<BookStore> findByBookRegistrationNumberIn (List<String> bookRegistrationNumberList);
 }

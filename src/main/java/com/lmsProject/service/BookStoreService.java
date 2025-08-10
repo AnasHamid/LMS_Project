@@ -2,7 +2,7 @@ package com.lmsProject.service;
 
 import com.lmsProject.dto.AddBooksRequest;
 import com.lmsProject.dto.BookListResponse;
-import com.lmsProject.dto.DeleteBooksByNameRequest;
+import com.lmsProject.dto.DeleteBooksRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +13,5 @@ public interface BookStoreService {
 
     ResponseEntity<String> addBooks(AddBooksRequest addBooksRequest);
 
-    ResponseEntity<String> deleteBooksByName(DeleteBooksByNameRequest deleteBooksByNameRequest);
+    ResponseEntity<String> deleteBooksByName(DeleteBooksRequest deleteBooksRequest);
 }
